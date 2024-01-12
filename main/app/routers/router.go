@@ -1,7 +1,6 @@
 package routers
 
 import (
-	handlers "command-line-argumentsD:\\GoProjects\\Call Center\\main\\app\\handlers\\income-calls.go"
 	"github.com/gin-gonic/gin"
 )
 
