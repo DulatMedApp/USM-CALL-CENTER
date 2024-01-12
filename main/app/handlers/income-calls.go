@@ -1,10 +1,14 @@
+// В handlers/income_calls.go
+
 package handlers
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
-func getIncomeCallsHandler(c *gin.Context) {
-	// Отправьте HTML-страницу custom-tables.html
-	c.File("custom-tables.html")
+// GETIncomeCallsHandler обработчик для страницы income-calls
+func GETIncomeCallsHandler(c *gin.Context) {
+	c.HTML(http.StatusOK, "income-calls.html", nil)
 }

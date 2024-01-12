@@ -1,15 +1,11 @@
+// main.go
 package main
 
-import "github.com/gin-gonic/gin"
+import "usmcallcenter/main/app/routers"
 
 func main() {
-	r := gin.Default()
-
-	// Добавьте маршруты
-	r.GET("/custom-tables", func(c *gin.Context) {
-		c.File("/public/custom-tables.html")
-	})
+	r := routers.SetupRouter()
 
 	// Запустите сервер
-	r.Run(":8080")
+	r.Run(":3000")
 }
