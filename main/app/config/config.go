@@ -5,7 +5,7 @@ var (
 	DBPort     = "3306"
 	DBUser     = "root"
 	DBPassword = "123QWEqwe"
-	DBDatabase = "nola_db"
+	DBDatabase = "asteriskcdrdb"
 )
 
 var (

@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+	"usmcallcenter/main/app/handlers"
 
 	"github.com/gin-gonic/gin"
 )
@@ -36,17 +37,7 @@ func SetupRouter() *gin.Engine {
 	router.Static("/static", "./main/app/static")
 
 	// Маршрут для отображения HTML-страницы по /income-calls
-	router.GET("/income-calls", func(c *gin.Context) {
-		// Попробуйте выводить имя файла, чтобы убедиться, что оно правильное
-		log.Println("Rendering template: incomeCalls.html")
-		// Рендерим шаблон
-		err := templates.ExecuteTemplate(c.Writer, "incomeCalls.html", nil)
-		if err != nil {
-			log.Println("Error executing template:", err)
-			c.String(http.StatusInternalServerError, "Internal Server Error")
-			return
-		}
-	})
+	router.GET("/income-calls", handlers.IncomeCallsHandler)
 
 	router.GET("/header", func(c *gin.Context) {
 		// Попробуйте выводить имя файла, чтобы убедиться, что оно правильное
