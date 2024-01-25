@@ -1,10 +1,10 @@
 package config
 
 var (
-	DBHost     = "localhost"
+	DBHost     = "195.49.210.210"
 	DBPort     = "3306"
-	DBUser     = "root"
-	DBPassword = "123QWEqwe"
+	DBUser     = "testuser"
+	DBPassword = "oochi8Ophudujoh"
 	DBDatabase = "asteriskcdrdb"
 )
 

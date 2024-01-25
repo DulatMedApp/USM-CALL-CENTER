@@ -39,23 +39,13 @@ func SetupRouter() *gin.Engine {
 	// Маршрут для отображения HTML-страницы по /income-calls
 	router.GET("/income-calls", handlers.IncomeCallsHandler)
 
+	router.GET("/outgoing-calls", handlers.OutgoingCallsHandler)
+
 	router.GET("/header", func(c *gin.Context) {
 		// Попробуйте выводить имя файла, чтобы убедиться, что оно правильное
 		log.Println("Rendering template: header.html")
 		// Рендерим шаблон
 		err := templates.ExecuteTemplate(c.Writer, "header.html", nil)
-		if err != nil {
-			log.Println("Error executing template:", err)
-			c.String(http.StatusInternalServerError, "Internal Server Error")
-			return
-		}
-	})
-
-	router.GET("/outgoing-calls", func(c *gin.Context) {
-		// Попробуйте выводить имя файла, чтобы убедиться, что оно правильное
-		log.Println("Rendering template: outgoingCalls.html")
-		// Рендерим шаблон
-		err := templates.ExecuteTemplate(c.Writer, "outgoingCalls.html", nil)
 		if err != nil {
 			log.Println("Error executing template:", err)
 			c.String(http.StatusInternalServerError, "Internal Server Error")
