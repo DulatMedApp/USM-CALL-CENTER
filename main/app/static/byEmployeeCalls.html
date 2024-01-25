@@ -84,22 +84,39 @@
 
         <!-- BEGIN .app-main -->
         <div class="app-main">
-          <!-- BEGIN .main-heading -->
-          <!--header class="main-heading">
+          <header class="main-heading">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-sm-6">
                   <div class="page-icon">
-                    <i class="icon-border_outer"></i>
+                    <i class="icon-laptop_windows"></i>
                   </div>
                   <div class="page-title">
-                    <h3>Custom Tables</h3>
-                    <h6 class="sub-heading">
-                      Welcome to Kingfisher Admin Template
-                    </h6>
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Все отделы</option>
+                      <option value="77710151511">Детские специалисты</option>
+                      <option value="77720202020">Взрослые специалисты</option>
+                      <option value="77730303030">МРТ/КТ</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
+
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Выберите период</option>
+                      <option value="77710151511">Прошлая неделя</option>
+                      <option value="77720202020">с 5-12 число</option>
+                      <option value="77730303030">с 28-5</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Все номера</option>
+                      <option value="77710151511">+7(771)015-15-11</option>
+                      <option value="77720202020">+7(707)785-25-96</option>
+                      <option value="77730303030">+7(701)432-33-11</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
                   </div>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-sm-6">
                   <div class="daterange-container">
                     <div id="reportrange" class="form-control">
                       <span></span> <i class="icon-chevron-down down-arrow"></i>
@@ -108,8 +125,7 @@
                 </div>
               </div>
             </div>
-          </heade-->
-          <!-- END: .main-heading -->
+          </header>
 
           <!-- BEGIN .main-content -->
           <div class="main-content">
@@ -129,107 +145,6 @@
                 <!-- section container start -->
                 <div class="section-container">
                   <p class="section-title">По сотрудникам</p>
-                  <select id="phoneNumbers">
-                    <option value="На все номера">Все сотрудники</option>
-                    <option value="77710151511">Тогжан</option>
-                    <option value="77720202020">Адиль</option>
-                    <option value="77730303030">Саида</option>
-                    <!-- Добавьте дополнительные номера телефонов по аналогии -->
-                  </select>
-                  <button
-                    class="toggle-button"
-                    onclick="toggleVisibility('statistic-block')">
-                    Статистика звонков
-                  </button>
-                  <div class="statistic-section" id="statistic-block">
-                    <br />
-                    <p>
-                      <span class="highlight"
-                        >Всех звонков за выбранный период:</span
-                      >
-                      <span class="highlight">137</span> из них уникальных:
-                      <span class="highlight">80</span>
-                    </p>
-
-                    <div class="statistic-section">
-                      <p>
-                        Звонили впервые:
-                        <span class="highlight">24</span> (<span
-                          class="highlight"
-                          >30.00%</span
-                        >)
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Принятых звонков:
-                        <span class="highlight">86</span> (<span
-                          class="highlight"
-                          >62.77%</span
-                        >)
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>Непринятых звонков:</p>
-                      <div class="sub-section">
-                        <p>
-                          в рабочее время:
-                          <span class="highlight">40</span> (<span
-                            class="highlight"
-                            >29.20%</span
-                          >) из них звонили впервые:
-                          <span class="highlight">8</span>
-                        </p>
-                      </div>
-                      <div class="sub-section">
-                        <p>
-                          в нерабочее время:
-                          <span class="highlight">11</span> (<span
-                            class="highlight"
-                            >8.03%</span
-                          >) из них звонили впервые:
-                          <span class="highlight">2</span>
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Длительность всех разговоров:
-                        <span class="highlight">02:57:28</span>
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Среднее время разговора:
-                        <span class="highlight">02:04</span>
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Среднее время ожидания всех звонков:
-                        <span class="highlight">00:21</span>, принятых звонков:
-                        <span class="highlight">00:15</span>, непринятых
-                        звонков:
-                        <span class="highlight">00:31</span>
-                      </p>
-                    </div>
-                  </div>
-                  <script>
-                    function toggleVisibility(elementId) {
-                      var element = document.getElementById(elementId);
-                      // Изменим условие, чтобы учитывать не только "none", но и "inline", "inline-block", "table", и так далее
-                      if (window.getComputedStyle(element).display === "none") {
-                        element.style.display = "block";
-                      } else {
-                        element.style.display = "none";
-                      }
-                    }
-                  </script>
 
                   <!--*************************
 									*************************
@@ -267,7 +182,7 @@
                             <i class="text-success icon-phone"></i> Биялиева
                             Тогжан
                           </td>
-                          <td>77075474455</td>
+                          <td>+7 (707) 547-44-55</td>
                           <td>00:30</td>
                           <td>06:23</td>
                           <td>13:00 17.01.2024</td>
@@ -278,7 +193,7 @@
                             <i class="text-danger icon-phone"></i> Биялиева
                             Тогжан
                           </td>
-                          <td>77715874499</td>
+                          <td>+7 (771) 587-44-99</td>
                           <td>00:05</td>
                           <td>00:56</td>
                           <td>19:30 17.01.2024</td>
@@ -289,7 +204,7 @@
                             <i class="text-success icon-phone"></i> Биялиева
                             Тогжан
                           </td>
-                          <td>77751489966</td>
+                          <td>+7 (775) 148-99-66</td>
                           <td>01:02</td>
                           <td>12:36</td>
                           <td>15:56 17.01.2024</td>
@@ -300,7 +215,7 @@
                             <i class="text-danger icon-phone"></i> Биялиева
                             Тогжан
                           </td>
-                          <td>77713654455</td>
+                          <td>+7 (771) 365-44-55</td>
                           <td>02:01</td>
                           <td>21:01</td>
                           <td>13:45 17.01.2024</td>
@@ -311,7 +226,7 @@
                             <i class="text-success icon-phone"></i> Биялиева
                             Тогжан
                           </td>
-                          <td>77071455522</td>
+                          <td>+7 (707) 145-55-22</td>
                           <td>02:23</td>
                           <td>09:45</td>
                           <td>19:36 17.01.2024</td>
@@ -322,7 +237,7 @@
                             <i class="text-success icon-phone"></i> Биялиева
                             Тогжан
                           </td>
-                          <td>77710255566</td>
+                          <td>+7 (771) 025-55-66</td>
                           <td>01:02</td>
                           <td>04:41</td>
                           <td>12:43 17.01.2024</td>
@@ -333,7 +248,7 @@
                             <i class="text-success icon-phone"></i> Биялиева
                             Тогжан
                           </td>
-                          <td>77073656633</td>
+                          <td>+7 (770) 736-56-33</td>
                           <td>00:00</td>
                           <td>09:45</td>
                           <td>15:25 17.01.2024</td>
@@ -344,7 +259,7 @@
                             <i class="text-danger icon-phone"></i>
                             Биялиева Тогжан
                           </td>
-                          <td>77710255544</td>
+                          <td>+7 (771) 025-55-44</td>
                           <td>02:02</td>
                           <td>10:01</td>
                           <td>10:21 17.01.2024</td>
@@ -355,7 +270,7 @@
                             <i class="text-success icon-phone"></i> Биялиева
                             Тогжан
                           </td>
-                          <td>77713652266</td>
+                          <td>+7 (771) 365-22-66</td>
                           <td>00:08</td>
                           <td>07:45</td>
                           <td>14:23 17.01.2024</td>
@@ -366,7 +281,7 @@
                             <i class="text-danger icon-phone"></i>
                             Биялиева Тогжан
                           </td>
-                          <td>77712365599</td>
+                          <td>+7 (771) 236-55-99</td>
                           <td>01:02</td>
                           <td>23:01</td>
                           <td>11:45 17.01.2024</td>

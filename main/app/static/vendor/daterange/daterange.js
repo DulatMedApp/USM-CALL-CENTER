@@ -792,11 +792,11 @@
 
 					//highlight today's date
 					if (calendar[row][col].isSame(new Date(), "day"))
-						classes.push('today');
+						classes.push('Сегодня');
 
 					//highlight weekends
 					if (calendar[row][col].isoWeekday() > 5)
-						classes.push('weekend');
+						classes.push('Вчера');
 
 					//grey out the dates in other months displayed at beginning and end of this calendar
 					if (calendar[row][col].month() != calendar[1][1].month())

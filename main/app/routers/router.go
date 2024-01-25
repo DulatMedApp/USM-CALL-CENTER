@@ -131,6 +131,54 @@ func SetupRouter() *gin.Engine {
 			return
 		}
 	})
+
+	router.GET("/flot", func(c *gin.Context) {
+		// Попробуйте выводить имя файла, чтобы убедиться, что оно правильное
+		log.Println("Rendering template: flot.html")
+		// Рендерим шаблон
+		err := templates.ExecuteTemplate(c.Writer, "flot.html", nil)
+		if err != nil {
+			log.Println("Error executing template:", err)
+			c.String(http.StatusInternalServerError, "Internal Server Error")
+			return
+		}
+	})
+
+	router.GET("/chat", func(c *gin.Context) {
+		// Попробуйте выводить имя файла, чтобы убедиться, что оно правильное
+		log.Println("Rendering template: chat.html")
+		// Рендерим шаблон
+		err := templates.ExecuteTemplate(c.Writer, "chat.html", nil)
+		if err != nil {
+			log.Println("Error executing template:", err)
+			c.String(http.StatusInternalServerError, "Internal Server Error")
+			return
+		}
+	})
+
+	router.GET("/tasks", func(c *gin.Context) {
+		// Попробуйте выводить имя файла, чтобы убедиться, что оно правильное
+		log.Println("Rendering template: tasks.html")
+		// Рендерим шаблон
+		err := templates.ExecuteTemplate(c.Writer, "tasks.html", nil)
+		if err != nil {
+			log.Println("Error executing template:", err)
+			c.String(http.StatusInternalServerError, "Internal Server Error")
+			return
+		}
+	})
+
+	router.GET("/login", func(c *gin.Context) {
+		// Попробуйте выводить имя файла, чтобы убедиться, что оно правильное
+		log.Println("Rendering template: login.html")
+		// Рендерим шаблон
+		err := templates.ExecuteTemplate(c.Writer, "login.html", nil)
+		if err != nil {
+			log.Println("Error executing template:", err)
+			c.String(http.StatusInternalServerError, "Internal Server Error")
+			return
+		}
+	})
 	// Добавьте другие маршруты, как необходимо
 
 	return router

@@ -1,26 +1,20 @@
 $(function () {    
-	var data24Hours = [
-		[0, 10],[1, 120],[2, 200],[3, 300],[4, 157],[5, 78],[6, 58],[7, 428],[8, 194],[9, 38],[10, -188],[11, -214],[12, -364],
-		[13, 49],[14, 8],[15, 82]
-	];
+ var data24Hours = [
+        [0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 5], [7, 25], [8, 38], [9, 5], [10, 3], [11, 15], [12,40],
+        [13, 50], [14, 20], [15, 15], [16, 10], [17, 7], [18, 10], [19, 0], [20, 0], [21, 0], [22, 0], [23, 0]
+    ];
 
-	var data48Hours = [
-		[0, 80],[1, 320],[2, 400],[3, 500],[4, 357],[5, 278],[6, 358],[7, 248],[8, 54],[9, 338],[10, 188],[11, 314],[12, 464],
-		[13, 559],[14, 458],[15, 182]
-	];
 
-	var dataDifference = [
-		[15, 10],[14, 420],[13, 500],[12, 490],
-		[11, 100],[10, 200],[9, -50],[8, -100],[7, -150],[6, -340],[5, -65],[4, -90],[3, -280],[2, -400],[1, -120],[0, 280]
-	];
 
-	var ticks = [
-		[0, "22h"],[1, ""],[2, "00h"],[3, ""],[4, "02h"],[5, ""],[6, "04h"],[7, ""],[8, "06h"],[9, ""],[10, "08h"],
-		[11, ""],[12, "10h"],[13, ""],[14, "12h"],[15, ""]
-	];
+ var ticks = [
+        [0, "00:00"], [1, "01:00"], [2, "02:00"], [3, "03:00"], [4, "04:00"], [5, "05:00"],
+        [6, "06:00"], [7, "07:00"], [8, "08:00"], [9, "09:00"], [10, "10:00"], [11, "11:00"],
+        [12, "12:00"], [13, "13:00"], [14, "14:00"], [15, "15:00"], [16, "16:00"], [17, "17:00"],
+        [18, "18:00"], [19, "19:00"], [20, "20:00"], [21, "21:00"], [22, "22:00"], [23, "23:00"]
+    ];
 
 	var data = [{
-		label: "Last 24 Hours",
+		label: "Последние 24 часа",
 		data: data24Hours,
 		lines: {
 			show: true, lineWidth: 2
@@ -30,25 +24,9 @@ $(function () {
 			radius: 4,
 			fill: true,
 			fillColor: "#ffffff",
-			lineWidth: 3
+			lineWidth: 3,
+			symbol: "circle"
 		}
-	},{
-		label: "Last 48 Hours",
-		data: data48Hours,
-		lines: {
-			show: true, lineWidth: 2
-		},
-		points: {
-			show:true,
-			radius: 4,
-			fill: true,
-			fillColor: "#ffffff",
-			lineWidth: 2
-		}
-	},{
-		label: "Difference",
-		data: dataDifference,
-		bars: {show: true}
 	}];
 
 	var options = {
@@ -84,4 +62,24 @@ $(function () {
 	var plot = $.plot($("#combineChartCompare"), 
 	data
 , options);  
+
+
+   // Добавляем текстовые метки к точкам
+    for (var i = 0; i < data24Hours.length; i++) {
+        var point = data24Hours[i];
+        var label = point[1].toString(); // Преобразуем значение в строку
+        var offset = plot.pointOffset({ x: point[0], y: point[1] });
+        $("<div class='data-point-label'>" + label + "</div>")
+            .css({
+                position: 'absolute',
+                left: offset.left - 10, // Настройте смещение по горизонтали
+                top: offset.top - 20,  // Настройте смещение по вертикали
+                display: 'none',
+                color: '#333',
+                'font-size': '12px',
+                'font-weight': 'bold'
+            })
+            .appendTo(plot.getPlaceholder())
+            .fadeIn('slow');
+    }
 });

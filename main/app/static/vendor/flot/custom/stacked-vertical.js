@@ -18,13 +18,13 @@ $(function () {
 	];
 
 	data = [{
-		label: 'Referral',
+		label: 'Принятых звонков',
 		data: d1
 	}, {
-		label: 'Direct',
+		label: 'Ответили сразу',
 		data: d2
 	}, {
-		label: 'Organic',
+		label: 'Непринятых звонков',
 		data: d3
 	}];
 
@@ -33,8 +33,8 @@ $(function () {
 			min: (new Date(2011, 11, 15)).getTime(),
 			max: (new Date(2012, 04, 18)).getTime(),
 			mode: "time",
-			tickSize: [2, "month"],
-			monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+			tickSize: [1, "month"],
+			monthNames: ["Детские специалисты", "Взрослые специалисты", "КТ/МРТ", "Введение беременности", "Родоразрешение"],
 			tickLength: 0
 		},
 		grid:{
@@ -68,7 +68,7 @@ $(function () {
 		tooltipOpts: {
 			content: '%s: %y'
 		},
-		colors: ['#e17c7c', '#eba8a8', '#f5d3d3'],
+		colors: ['#76D12C','#f5d3d3', '#dc143c' ],
 	}
 
 	var holder = $('#stacked-vertical-chart');

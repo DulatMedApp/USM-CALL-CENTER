@@ -34,7 +34,7 @@
 			**********************
 		-->
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/css/bootstrap.css" />
 
     <!-- Icomoon Icons CSS -->
     <link rel="stylesheet" href="/static/fonts/icomoon/icomoon.css" />
@@ -47,6 +47,9 @@
 
     <!-- Daterange CSS -->
     <link rel="stylesheet" href="/static/vendor/daterange/daterange.css" />
+
+    <!-- C3 CSS -->
+    <link rel="stylesheet" href="static/vendor/c3/c3.min.css" />
 
     <!--
 			**********************
@@ -84,22 +87,39 @@
 
         <!-- BEGIN .app-main -->
         <div class="app-main">
-          <!-- BEGIN .main-heading -->
-          <!--header class="main-heading">
+          <header class="main-heading">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-sm-6">
                   <div class="page-icon">
-                    <i class="icon-border_outer"></i>
+                    <i class="icon-laptop_windows"></i>
                   </div>
                   <div class="page-title">
-                    <h3>Custom Tables</h3>
-                    <h6 class="sub-heading">
-                      Welcome to Kingfisher Admin Template
-                    </h6>
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Все отделы</option>
+                      <option value="77710151511">Детские специалисты</option>
+                      <option value="77720202020">Взрослые специалисты</option>
+                      <option value="77730303030">МРТ/КТ</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
+
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Выберите период</option>
+                      <option value="77710151511">Прошлая неделя</option>
+                      <option value="77720202020">с 5-12 число</option>
+                      <option value="77730303030">с 28-5</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Все номера</option>
+                      <option value="77710151511">+7(771)015-15-11</option>
+                      <option value="77720202020">+7(707)785-25-96</option>
+                      <option value="77730303030">+7(701)432-33-11</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
                   </div>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-sm-6">
                   <div class="daterange-container">
                     <div id="reportrange" class="form-control">
                       <span></span> <i class="icon-chevron-down down-arrow"></i>
@@ -108,10 +128,7 @@
                 </div>
               </div>
             </div>
-          </header-->
-          <!-- END: .main-heading -->
-
-          <!-- BEGIN .main-content -->
+          </header>
           <div class="main-content">
             <!-- Row start -->
 
@@ -122,136 +139,50 @@
 
                 <!-- section container end -->
 
-                <!-- section container start -->
-
-                <!-- section container end -->
-
-                <!-- section container start -->
                 <div class="section-container">
-                  <p class="section-title">Совершенные звонки</p>
-                  <select id="phoneNumbers">
-                    <option value="На все номера">Все сотрудники</option>
-                    <option value="77710151511">Адиль</option>
-                    <option value="77720202020">Тогжан</option>
-                    <option value="77730303030">Саяна</option>
-                    <!-- Добавьте дополнительные номера телефонов по аналогии -->
-                  </select>
-                  <button
-                    class="toggle-button"
-                    onclick="toggleVisibility('statistic-block')">
-                    Статистика звонков
-                  </button>
-                  <div class="statistic-section" id="statistic-block">
-                    <br />
-                    <p>
-                      <span class="highlight"
-                        >Всех звонков за выбранный период:</span
-                      >
-                      <span class="highlight">137</span> из них уникальных:
-                      <span class="highlight">80</span>
-                    </p>
-
-                    <div class="statistic-section">
-                      <p>
-                        Звонили впервые:
-                        <span class="highlight">24</span> (<span
-                          class="highlight"
-                          >30.00%</span
-                        >)
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Принятых звонков:
-                        <span class="highlight">86</span> (<span
-                          class="highlight"
-                          >62.77%</span
-                        >)
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>Непринятых звонков:</p>
-                      <div class="sub-section">
-                        <p>
-                          в рабочее время:
-                          <span class="highlight">40</span> (<span
-                            class="highlight"
-                            >29.20%</span
-                          >) из них звонили впервые:
-                          <span class="highlight">8</span>
-                        </p>
+                  <h6 class="section-title">Исходящие звонки</h6>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-header">Входящие по отделам</div>
+                      <div class="card-body">
+                        <div
+                          id="stacked-vertical-chart"
+                          class="chart-height"></div>
                       </div>
-                      <div class="sub-section">
-                        <p>
-                          в нерабочее время:
-                          <span class="highlight">11</span> (<span
-                            class="highlight"
-                            >8.03%</span
-                          >) из них звонили впервые:
-                          <span class="highlight">2</span>
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Длительность всех разговоров:
-                        <span class="highlight">02:57:28</span>
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Среднее время разговора:
-                        <span class="highlight">02:04</span>
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Среднее время ожидания всех звонков:
-                        <span class="highlight">00:21</span>, принятых звонков:
-                        <span class="highlight">00:15</span>, непринятых
-                        звонков:
-                        <span class="highlight">00:31</span>
-                      </p>
                     </div>
                   </div>
-                  <script>
-                    function toggleVisibility(elementId) {
-                      var element = document.getElementById(elementId);
-                      // Изменим условие, чтобы учитывать не только "none", но и "inline", "inline-block", "table", и так далее
-                      if (window.getComputedStyle(element).display === "none") {
-                        element.style.display = "block";
-                      } else {
-                        element.style.display = "none";
-                      }
-                    }
-                  </script>
+                  <div class="col-sm-6">
+                    <div class="card">
+                      <div class="card-header">Все входящие</div>
+                      <div class="card-body">
+                        <div id="pieChart" class="chart-height"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                  <!--*************************
-									*************************
-									*************************
-									Basic Table start
-									*************************
-									*************************
-									*************************-->
-                  <div class="table-responsive">
-                    <table class="table m-0">
-                      <thead>
-                        <tr>
-                          <th>Кто звонил</th>
-                          <th>Кому звонили</th>
-                          <th>Ожидание</th>
-                          <th>Длительность разговора</th>
-                          <th>Время звонка</th>
-                          <th>Комментарии</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <!--tr>
+             
+
+                <br />
+                 <div class="section-container">
+                <div class="table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                      <tr>
+                        <th>Кто звонил</th>
+                        <th>Кому звонили</th>
+                        <th>Ожидание</th>
+                        <th>Длительность разговора</th>
+                        <th>Время звонка</th>
+                        <th>Статус</th>
+                        <th>Действие</th>
+                      </tr>
+                    </thead>
+                  </div>
+                    <tbody>
+                      <!--tr>
                           <td>
                             <i class="text-success icon-phone"></i> (000)1234
                             1234
@@ -263,146 +194,159 @@
                           <td>Lead</td>
                           <td class="text-info">Good</td>
                         </tr-->
-                        <tr>
-                          <td>
-                            <i class="text-success icon-phone"></i> 77710151511
-                          </td>
-                          <td>Биялиева Тогжан</td>
-                          <td>00:30</td>
-                          <td>06:23</td>
-                          <td>13:00 17.01.2024</td>
-                          <td>Нет комментариев</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-danger icon-phone"></i> 77777444760
-                          </td>
-                          <td>Адиль</td>
-                          <td>00:05</td>
-                          <td>00:56</td>
-                          <td>19:30 17.01.2024</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-success icon-phone"></i> 7771597622
-                          </td>
-                          <td>Биялиева Тогжан</td>
-                          <td>01:02</td>
-                          <td>12:36</td>
-                          <td>15:56 17.01.2024</td>
-                          <td>Грубо разговаривала</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-danger icon-phone"></i> 7707524677
-                          </td>
-                          <td>Саяна</td>
-                          <td>02:01</td>
-                          <td>21:01</td>
-                          <td>13:45 17.01.2024</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-success icon-phone"></i> 7700625499
-                          </td>
-                          <td>Амир</td>
-                          <td>02:23</td>
-                          <td>09:45</td>
-                          <td>19:36 17.01.2024</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-success icon-phone"></i> 77775413655
-                          </td>
-                          <td>Саяна</td>
-                          <td>01:02</td>
-                          <td>04:41</td>
-                          <td>12:43 17.01.2024</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-success icon-phone"></i> 77771544444
-                          </td>
-                          <td>Алина</td>
-                          <td>00:00</td>
-                          <td>09:45</td>
-                          <td>15:25 17.01.2024</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-danger icon-phone"></i>
-                            77710151511
-                          </td>
-                          <td>Алина</td>
-                          <td>02:02</td>
-                          <td>10:01</td>
-                          <td>10:21 17.01.2024</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-success icon-phone"></i> 7771745522
-                          </td>
-                          <td>Биялиева Тогжан</td>
-                          <td>00:08</td>
-                          <td>07:45</td>
-                          <td>14:23 17.01.2024</td>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <i class="text-danger icon-phone"></i>
-                            77075221144
-                          </td>
-                          <td>Саяна</td>
-                          <td>01:02</td>
-                          <td>23:01</td>
-                          <td>11:45 17.01.2024</td>
-                          <td></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <!--*************************
+                      <tr>
+                        <td>
+                          <i class="text-success icon-phone"></i> +7 (771)
+                          015-15-11
+                        </td>
+                        <td>Кенжебекова Жанар</td>
+                        <td>00:30</td>
+                        <td>06:23</td>
+                        <td>13:00 17.01.2024</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-danger icon-phone"></i> Серик Аманов
+                        </td>
+                        <td>Кенжебекова Жанар</td>
+                        <td>00:05</td>
+                        <td>00:00</td>
+                        <td>19:30 17.01.2024</td>
+                        <td>
+                          <span class="badge badge-pill badge-success"
+                            >Не дождался</span
+                          >
+                        </td>
+                        <td><span class="icon-volume-down"></span></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-success icon-phone"></i> +7 (771)
+                          597-62-22
+                        </td>
+                        <td>Кенжебекова Жанар</td>
+                        <td>01:02</td>
+                        <td>12:36</td>
+                        <td>15:56 17.01.2024</td>
+                        <td>Грубо разговаривала</td>
+                        <td><span class="icon-volume-down"></span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-danger icon-phone"></i> Айгерим
+                          Токбаева
+                        </td>
+                        <td>Кызбалаева Тогжан</td>
+                        <td>02:01</td>
+                        <td>00:00</td>
+                        <td>13:45 17.01.2024</td>
+                        <td>
+                          <span class="badge badge-pill badge-success"
+                            >Не дождался</span
+                          >
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-success icon-phone"></i> Айдын Сункаров
+                        </td>
+                        <td>Абишева Гульмира</td>
+                        <td>02:23</td>
+                        <td>09:45</td>
+                        <td>19:36 17.01.2024</td>
+                        <td></td>
+                        <td><span class="icon-volume-down"></span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-success icon-phone"></i> +7 (777)
+                          541-36-55
+                        </td>
+                        <td>Колобаева Мейрамгуль</td>
+                        <td>01:02</td>
+                        <td>04:41</td>
+                        <td>12:43 17.01.2024</td>
+                        <td></td>
+                        <td><span class="icon-volume-down"></span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-success icon-phone"></i> +7 (777)
+                          154-44-44
+                        </td>
+                        <td>Абишева Гульмира</td>
+                        <td>00:00</td>
+                        <td>09:45</td>
+                        <td>15:25 17.01.2024</td>
+                        <td></td>
+                        <td><span class="icon-volume-down"></span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-danger icon-phone"></i>
+                          +7 (771) 015-15-11
+                        </td>
+                        <td>Абишева Гульмира</td>
+                        <td>02:02</td>
+                        <td>00:00</td>
+                        <td>10:21 17.01.2024</td>
+                        <td>
+                          <span class="badge badge-pill badge-success"
+                            >Не дождался</span
+                          >
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-success icon-phone"></i> +7 (771)
+                          745-52-22
+                        </td>
+                        <td>Биялиева Тогжан</td>
+                        <td>00:08</td>
+                        <td>07:45</td>
+                        <td>14:23 17.01.2024</td>
+                        <td></td>
+                        <td><span class="icon-volume-down"></span></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i class="text-danger icon-phone"></i>
+                          +7 (707) 522-11-44
+                        </td>
+                        <td>Кенжебекова Жанар</td>
+                        <td>01:02</td>
+                        <td>23:01</td>
+                        <td>11:45 17.01.2024</td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+             
+                <!--*************************
 									*************************
 									*************************
 									Basic Table end
 									*************************
 									*************************
 									*************************-->
-                </div>
-                <!-- section container end -->
-
-                <!-- section container start -->
-
-                <!-- section container end -->
-
-                <!-- section container start -->
-
-                <!-- section container end -->
-
-                <!-- section container start -->
-
-                <!-- section container end -->
               </div>
             </div>
             <!-- Row end -->
           </div>
           <!-- END: .main-content -->
-
-          <!-- BEGIN .main-footer -->
-
-          <!-- END: .main-footer -->
         </div>
         <!-- END: .app-main -->
       </div>
       <!-- END: .app-container -->
     </div>
+    
     <!-- END: .app-wrap -->
 
     <!--
@@ -435,6 +379,51 @@
     <script src="/static/vendor/daterange/daterange.js"></script>
     <script src="/static/vendor/daterange/custom-daterange.js"></script>
 
+    <!-- Flot Charts JS -->
+    <script src="static/vendor/flot/jquery.flot.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.time.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.pie.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.stack.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.resize.min.js"></script>
+
+    <!-- Custom Flot Chart JS -->
+    <script src="static/vendor/flot/custom/line.js"></script>
+    <script src="static/vendor/flot/custom/area.js"></script>
+    <script src="static/vendor/flot/custom/combine-chart.js"></script>
+    <script src="static/vendor/flot/custom/combine-chart-compare.js"></script>
+    <script src="static/vendor/flot/custom/stacked-area.js"></script>
+    <script src="static/vendor/flot/custom/vertical.js"></script>
+    <script src="static/vendor/flot/custom/horizontal.js"></script>
+    <script src="static/vendor/flot/custom/stacked-vertical.js"></script>
+    <script src="static/vendor/flot/custom/stacked-horizontal.js"></script>
+    <script src="static/vendor/flot/custom/rectangular-pie.js"></script>
+    <script src="static/vendor/flot/custom/realtime.js"></script>
+    <script src="static/vendor/flot/custom/pie.js"></script>
+    <script src="static/vendor/flot/custom/donut.js"></script>
+    <script src="static/vendor/flot/custom/scatter.js"></script>
+
+    <!-- D3 JS -->
+    <script src="static/vendor/d3/d3.min.js"></script>
+
+    <!-- C3 Graphs JS -->
+    <script src="static/vendor/c3/c3.min.js"></script>
+    <script src="static/vendor/c3/custom/line-graph.js"></script>
+    <script src="static/vendor/c3/custom/spline-graph.js"></script>
+    <script src="static/vendor/c3/custom/area-spline-graph.js"></script>
+    <script src="static/vendor/c3/custom/step-graph.js"></script>
+    <script src="static/vendor/c3/custom/bar-area-graph.js"></script>
+    <script src="static/vendor/c3/custom/bar-graph.js"></script>
+    <script src="static/vendor/c3/custom/stacked-bar-braph.js"></script>
+    <script src="static/vendor/c3/custom/scatter-plot.js"></script>
+    <script src="static/vendor/c3/custom/pie-chart.js"></script>
+    <script src="static/vendor/c3/custom/pie-chart-one.js"></script>
+    <script src="static/vendor/c3/custom/donut-chart.js"></script>
+    <script src="static/vendor/c3/custom/server-requests.js"></script>
+    <script src="static/vendor/c3/custom/spline-sales.js"></script>
+    <script src="static/vendor/c3/custom/line-graph-overview.js"></script>
+    <script src="static/vendor/c3/custom/line-graph-one.js"></script>
+
     <!--
 			**********************
 			**********************
@@ -448,6 +437,14 @@
     <script src="/static/vendor/datatables/dataTables.bootstrap.min.js"></script>
     <!-- Custom Data tables -->
     <script src="/static/vendor/datatables/custom/custom-datatables.js"></script>
+
+    <!-- D3 JS -->
+    <script src="static/vendor/d3/d3.min.js"></script>
+
+    <!-- C3 Graphs JS -->
+    <script src="static/vendor/c3/c3.min.js"></script>
+
+    <script src="static/vendor/c3/custom/bar-graph.js"></script>
 
     <!-- Common JS -->
     <script src="/static/js/common.js"></script>

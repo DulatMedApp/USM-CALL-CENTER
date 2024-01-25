@@ -84,6 +84,48 @@
 
         <!-- BEGIN .app-main -->
         <div class="app-main">
+          <header class="main-heading">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="page-icon">
+                    <i class="icon-laptop_windows"></i>
+                  </div>
+                  <div class="page-title">
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Все отделы</option>
+                      <option value="77710151511">Детские специалисты</option>
+                      <option value="77720202020">Взрослые специалисты</option>
+                      <option value="77730303030">МРТ/КТ</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
+
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Выберите период</option>
+                      <option value="77710151511">Прошлая неделя</option>
+                      <option value="77720202020">с 5-12 число</option>
+                      <option value="77730303030">с 28-5</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
+                    <select id="phoneNumbers">
+                      <option value="На все номера">Все номера</option>
+                      <option value="77710151511">+7(771)015-15-11</option>
+                      <option value="77720202020">+7(707)785-25-96</option>
+                      <option value="77730303030">+7(701)432-33-11</option>
+                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="daterange-container">
+                    <div id="reportrange" class="form-control">
+                      <span></span> <i class="icon-chevron-down down-arrow"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>
           <!-- BEGIN .main-heading -->
           <!--header class="main-heading">
             <div class="container-fluid">
@@ -129,115 +171,116 @@
                 <!-- section container start -->
                 <div class="section-container">
                   <p class="section-title">Потерянные вызовы</p>
-                  <select id="phoneNumbers">
-                    <option value="На все номера">Все отделы</option>
-                    <option value="77710151511">Адиль</option>
-                    <option value="77720202020">Тогжан</option>
-                    <option value="77730303030">Саяна</option>
-                    <!-- Добавьте дополнительные номера телефонов по аналогии -->
-                  </select>
-                  <button
-                    class="toggle-button"
-                    onclick="toggleVisibility('statistic-block')">
-                    Статистика звонков
-                  </button>
-                  <div class="statistic-section" id="statistic-block">
-                    <br />
+
+                  <div class="col-md-12 col-sm-6">
+                    <div class="card">
+                      <div class="card-header">
+                        Пропущенные звонки в разрезе часов
+                      </div>
+                      <div class="card-body">
+                        <div
+                          id="combineChartCompare"
+                          class="chart-height-lg"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="statistic-section" id="statistic-block">
+                  <br />
+                  <p>
+                    <span class="highlight"
+                      >Всех звонков за выбранный период:</span
+                    >
+                    <span class="highlight">137</span> из них уникальных:
+                    <span class="highlight">80</span>
+                  </p>
+
+                  <div class="statistic-section">
                     <p>
-                      <span class="highlight"
-                        >Всех звонков за выбранный период:</span
-                      >
-                      <span class="highlight">137</span> из них уникальных:
-                      <span class="highlight">80</span>
+                      Звонили впервые:
+                      <span class="highlight">24</span> (<span class="highlight"
+                        >30.00%</span
+                      >)
                     </p>
+                  </div>
 
-                    <div class="statistic-section">
+                  <div class="statistic-section">
+                    <p>
+                      Принятых звонков:
+                      <span class="highlight">86</span> (<span class="highlight"
+                        >62.77%</span
+                      >)
+                    </p>
+                  </div>
+
+                  <div class="statistic-section">
+                    <p>Непринятых звонков:</p>
+                    <div class="sub-section">
                       <p>
-                        Звонили впервые:
-                        <span class="highlight">24</span> (<span
+                        в рабочее время:
+                        <span class="highlight">40</span> (<span
                           class="highlight"
-                          >30.00%</span
-                        >)
+                          >29.20%</span
+                        >) из них звонили впервые:
+                        <span class="highlight">8</span>
                       </p>
                     </div>
-
-                    <div class="statistic-section">
+                    <div class="sub-section">
                       <p>
-                        Принятых звонков:
-                        <span class="highlight">86</span> (<span
+                        в нерабочее время:
+                        <span class="highlight">11</span> (<span
                           class="highlight"
-                          >62.77%</span
-                        >)
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>Непринятых звонков:</p>
-                      <div class="sub-section">
-                        <p>
-                          в рабочее время:
-                          <span class="highlight">40</span> (<span
-                            class="highlight"
-                            >29.20%</span
-                          >) из них звонили впервые:
-                          <span class="highlight">8</span>
-                        </p>
-                      </div>
-                      <div class="sub-section">
-                        <p>
-                          в нерабочее время:
-                          <span class="highlight">11</span> (<span
-                            class="highlight"
-                            >8.03%</span
-                          >) из них звонили впервые:
-                          <span class="highlight">2</span>
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Длительность всех разговоров:
-                        <span class="highlight">02:57:28</span>
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Среднее время разговора:
-                        <span class="highlight">02:04</span>
-                      </p>
-                    </div>
-
-                    <div class="statistic-section">
-                      <p>
-                        Среднее время ожидания всех звонков:
-                        <span class="highlight">00:21</span>, принятых звонков:
-                        <span class="highlight">00:15</span>, непринятых
-                        звонков:
-                        <span class="highlight">00:31</span>
+                          >8.03%</span
+                        >) из них звонили впервые:
+                        <span class="highlight">2</span>
                       </p>
                     </div>
                   </div>
-                  <script>
-                    function toggleVisibility(elementId) {
-                      var element = document.getElementById(elementId);
-                      // Изменим условие, чтобы учитывать не только "none", но и "inline", "inline-block", "table", и так далее
-                      if (window.getComputedStyle(element).display === "none") {
-                        element.style.display = "block";
-                      } else {
-                        element.style.display = "none";
-                      }
-                    }
-                  </script>
 
-                  <!--*************************
+                  <div class="statistic-section">
+                    <p>
+                      Длительность всех разговоров:
+                      <span class="highlight">02:57:28</span>
+                    </p>
+                  </div>
+
+                  <div class="statistic-section">
+                    <p>
+                      Среднее время разговора:
+                      <span class="highlight">02:04</span>
+                    </p>
+                  </div>
+
+                  <div class="statistic-section">
+                    <p>
+                      Среднее время ожидания всех звонков:
+                      <span class="highlight">00:21</span>, принятых звонков:
+                      <span class="highlight">00:15</span>, непринятых звонков:
+                      <span class="highlight">00:31</span>
+                    </p>
+                  </div>
+                </div>
+                <script>
+                  function toggleVisibility(elementId) {
+                    var element = document.getElementById(elementId);
+                    // Изменим условие, чтобы учитывать не только "none", но и "inline", "inline-block", "table", и так далее
+                    if (window.getComputedStyle(element).display === "none") {
+                      element.style.display = "block";
+                    } else {
+                      element.style.display = "none";
+                    }
+                  }
+                </script>
+
+                <!--*************************
 									*************************
 									*************************
 									Basic Table start
 									*************************
 									*************************
 									*************************-->
+                <div class="section-container">
                   <div class="table-responsive">
                     <table class="table m-0">
                       <thead>
@@ -265,7 +308,8 @@
                         </tr-->
                         <tr>
                           <td>
-                            <i class="text-danger icon-phone"></i> 77710151511
+                            <i class="text-danger icon-phone"></i> +7 (777)
+                            101-51-511
                           </td>
                           <td>Биялиева Тогжан</td>
                           <td>00:30</td>
@@ -275,7 +319,8 @@
                         </tr>
                         <tr>
                           <td>
-                            <i class="text-danger icon-phone"></i> 77777444760
+                            <i class="text-danger icon-phone"></i> +7 (777)
+                            744-47-60
                           </td>
                           <td>Адиль</td>
                           <td>00:05</td>
@@ -285,7 +330,8 @@
                         </tr>
                         <tr>
                           <td>
-                            <i class="text-danger icon-phone"></i> 7771597622
+                            <i class="text-danger icon-phone"></i> +7 (771)
+                            597-62-22
                           </td>
                           <td>Биялиева Тогжан</td>
                           <td>01:02</td>
@@ -295,7 +341,8 @@
                         </tr>
                         <tr>
                           <td>
-                            <i class="text-danger icon-phone"></i> 7707524677
+                            <i class="text-danger icon-phone"></i> +7 (707)
+                            524-67-17
                           </td>
                           <td>Саяна</td>
                           <td>02:01</td>
@@ -305,7 +352,8 @@
                         </tr>
                         <tr>
                           <td>
-                            <i class="text-danger icon-phone"></i> 7700625499
+                            <i class="text-danger icon-phone"></i> +7 (700)
+                            062-54-99
                           </td>
                           <td>Амир</td>
                           <td>02:23</td>
@@ -316,14 +364,15 @@
                       </tbody>
                     </table>
                   </div>
-                  <!--*************************
+                </div>
+                <!--*************************
 									*************************
 									*************************
 									Basic Table end
 									*************************
 									*************************
 									*************************-->
-                </div>
+
                 <!-- section container end -->
 
                 <!-- section container start -->
@@ -396,6 +445,30 @@
     <script src="/static/vendor/datatables/dataTables.bootstrap.min.js"></script>
     <!-- Custom Data tables -->
     <script src="/static/vendor/datatables/custom/custom-datatables.js"></script>
+
+    <!-- Flot Charts JS -->
+    <script src="static/vendor/flot/jquery.flot.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.time.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.pie.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.stack.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="static/vendor/flot/jquery.flot.resize.min.js"></script>
+
+    <!-- Custom Flot Chart JS -->
+    <script src="static/vendor/flot/custom/line.js"></script>
+    <script src="static/vendor/flot/custom/area.js"></script>
+    <script src="static/vendor/flot/custom/combine-chart.js"></script>
+    <script src="static/vendor/flot/custom/combine-chart-compare.js"></script>
+    <script src="static/vendor/flot/custom/stacked-area.js"></script>
+    <script src="static/vendor/flot/custom/vertical.js"></script>
+    <script src="static/vendor/flot/custom/horizontal.js"></script>
+    <script src="static/vendor/flot/custom/stacked-vertical.js"></script>
+    <script src="static/vendor/flot/custom/stacked-horizontal.js"></script>
+    <script src="static/vendor/flot/custom/rectangular-pie.js"></script>
+    <script src="static/vendor/flot/custom/realtime.js"></script>
+    <script src="static/vendor/flot/custom/pie.js"></script>
+    <script src="static/vendor/flot/custom/donut.js"></script>
+    <script src="static/vendor/flot/custom/scatter.js"></script>
 
     <!-- Common JS -->
     <script src="/static/js/common.js"></script>

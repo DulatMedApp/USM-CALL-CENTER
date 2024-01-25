@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"fmt"
 
-	configs "github.com/DulatMedApp/Nola/backend/cmd/internal/configs"
 	_ "github.com/go-sql-driver/mysql"
 )
 

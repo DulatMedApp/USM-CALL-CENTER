@@ -1311,7 +1311,7 @@ h5.custom {
 /*************** 5 A. Custom Header ***************/
 .custom-header {
   padding: 1rem 1rem;
-  background: #07477b;
+  background: #996640;
 }
 .custom-header .page-title {
   color: #ffffff;
@@ -1719,9 +1719,9 @@ a.logo img {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-  background-color: #118cf1; /* Fallback Color */
+  background-color: #ff7e39; /* Fallback Color */
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1ad0fc), to(#118cf1)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(right, #1ad0fc, #118cf1); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -webkit-linear-gradient(right, #996640, #996640); /* Chrome 10+, Saf5.1+, iOS 5+ */
   background-image: -moz-linear-gradient(right, #1ad0fc, #118cf1); /* FF3.6 */
   background-image: -ms-linear-gradient(right, #1ad0fc, #118cf1); /* IE10 */
   background-image: -o-linear-gradient(right, #1ad0fc, #118cf1); /* Opera 11.10+ */
@@ -4840,6 +4840,9 @@ ul.team-group li a:not(.btn) {
   text-transform: uppercase;
   margin: 0 0 30px 0;
   font-weight: 600;
+  font-family: 'Nunito Sans',
+    sans-serif !important;
+
 }
 .section-container p.section-desc {
   color: #8796af;
@@ -4868,8 +4871,8 @@ ul.team-group li a:not(.btn) {
 }
 .section-container .section-wrapper {
   border: 1px solid #e1e5f1;
-  background-color: #f7f9fb;
-  padding: 30px;
+  /* background-color: #f7f9fb; */
+  padding: 7px;
   text-align: center;
 }
 .section-container .section-wrapper.left {
@@ -4996,7 +4999,7 @@ ul.team-group li a:not(.btn) {
 .btn-primary {
   background-color: #118cf1; /* Fallback Color */
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1ad0fc), to(#118cf1)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(right, #1ad0fc, #118cf1); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -webkit-linear-gradient(right, red, red); /* Chrome 10+, Saf5.1+, iOS 5+ */
   background-image: -moz-linear-gradient(right, #1ad0fc, #118cf1); /* FF3.6 */
   background-image: -ms-linear-gradient(right, #1ad0fc, #118cf1); /* IE10 */
   background-image: -o-linear-gradient(right, #1ad0fc, #118cf1); /* Opera 11.10+ */
@@ -5018,9 +5021,9 @@ ul.team-group li a:not(.btn) {
 }
 
 .btn-secondary {
-  background-color: #6053da; /* Fallback Color */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#c246f8), to(#6053da)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(right, #c246f8, #6053da); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  /* background-color: #6053da; Fallback Color */
+  /* background-image: -webkit-gradient(linear, left top, left bottom, from(#c246f8), to(#6053da)); Saf4+, Chrome */
+  /* background-image: -webkit-linear-gradient(right, #c246f8, #6053da); Chrome 10+, Saf5.1+, iOS 5+ */
   background-image: -moz-linear-gradient(right, #c246f8, #6053da); /* FF3.6 */
   background-image: -ms-linear-gradient(right, #c246f8, #6053da); /* IE10 */
   background-image: -o-linear-gradient(right, #c246f8, #6053da); /* Opera 11.10+ */
@@ -5606,6 +5609,8 @@ ul.team-group li a:not(.btn) {
   -webkit-border-radius: 0.3rem 0.3rem 0 0;
   -moz-border-radius: 0.3rem 0.3rem 0 0;
   border-radius: 0.3rem 0.3rem 0 0;
+  font-family: 'Nunito Sans',
+    sans-serif !important;
 }
 .card.custom-bdr {
   border: 0;
@@ -6014,9 +6019,10 @@ ul.team-group li a:not(.btn) {
 }
 
 .badge-success {
+  font-weight: bold;
   background-color: #50b924; /* Fallback Color */
   background-image: -webkit-gradient(linear, left top, left bottom, from(#a5b936), to(#50b924)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(right, #a5b936, #50b924); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -webkit-linear-gradient(right, #a5b936, #ff0000); /* Chrome 10+, Saf5.1+, iOS 5+ */
   background-image: -moz-linear-gradient(right, #a5b936, #50b924); /* FF3.6 */
   background-image: -ms-linear-gradient(right, #a5b936, #50b924); /* IE10 */
   background-image: -o-linear-gradient(right, #a5b936, #50b924); /* Opera 11.10+ */
@@ -6969,9 +6975,10 @@ a.list-group-item-dark:hover {
 .table td {
   vertical-align: middle;
   border-top: 1px solid #e6ecf3;
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Nunito Sans',
       sans-serif !important;
+      color:black;
 }
 .table.table-dark thead th {
   border-color: #404040;
@@ -7371,31 +7378,18 @@ a.list-group-item-dark:hover {
                                              #phoneNumbers {
                                                padding: 8px;
                                                font-size: 14px;
-                                               border: 1px solid #009688;
+                                               border: 1px solid #2e323c;
                                                /* Цвет границы аналогичен кнопке */
                                                border-radius: 5px;
                                                margin-right: 10px;
-                                               background-color: #009688;
+                                               
                                                /* Цвет фона аналогичен кнопке */
-                                               color: #fff;
+                                              
                                                /* Цвет текста белый */
                                              }
                       
-                                             #phoneNumbers:hover {
-                                               cursor: pointer;
-                                               border-color: #00796b;
-                                               /* Темнее при наведении */
-                                               background-color: #00796b;
-                                               /* Темнее при наведении */
-                                             }
+                                             
                       
-                                             #phoneNumbers:focus {
-                                               outline: none;
-                                               border-color: #00796b;
-                                               /* Темнее при фокусировке */
-                                               background-color: #00796b;
-                                               /* Темнее при фокусировке */
-                                             }
                       
                                              #phoneNumbers option {
                                          padding: 8px;
