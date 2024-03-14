@@ -1,366 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Bootstrap Dashboards" />
-    <meta
-      name="keywords"
-      content="Tables, Custom Tables, Simple Tables, Admin Dashboard, Admin, Dashboard, Bootstrap 4, Sass, CSS3, HTML5, Responsive Dashboard, Responsive Admin Template, Admin Template, Best Admin Template, Bootstrap Template, Themeforest" />
-    <meta name="author" content="Bootstrap Gallery" />
-    <link rel="canonical" href="https://www.bootstrap.gallery/" />
-    <meta property="og:url" content="https://www.bootstrap.gallery" />
-    <meta
-      property="og:title"
-      content="Admin Templates - Dashboard Templates | Bootstrap Gallery" />
-    <meta
-      property="og:description"
-      content="Marketplace for Bootstrap Admin Dashboards" />
-    <meta property="og:type" content="Website" />
-    <meta property="og:site_name" content="Bootstrap Gallery" />
-    <link rel="shortcut icon" href="/static/img/favicon.svg" />
-    <title>Best Admin Dashboards - Custom Tables</title>
 
-    <!--
-			**********************
-			**********************
-			Common CSS files
-			**********************
-			**********************
-		-->
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/css/bootstrap.css" />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="Bootstrap Dashboards" />
+  <meta name="keywords"
+    content="Tables, Custom Tables, Simple Tables, Admin Dashboard, Admin, Dashboard, Bootstrap 4, Sass, CSS3, HTML5, Responsive Dashboard, Responsive Admin Template, Admin Template, Best Admin Template, Bootstrap Template, Themeforest" />
+  <meta name="author" content="Bootstrap Gallery" />
+  <link rel="canonical" href="https://www.bootstrap.gallery/" />
+  <meta property="og:url" content="https://www.bootstrap.gallery" />
+  <meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery" />
+  <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards" />
+  <meta property="og:type" content="Website" />
+  <meta property="og:site_name" content="Bootstrap Gallery" />
+  <link rel="shortcut icon" href="/static/img/favicon.svg" />
+  <title>Best Admin Dashboards - Custom Tables</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/static/css/bootstrap.css" />
 
-    <!-- Icomoon Icons CSS -->
-    <link rel="stylesheet" href="/static/fonts/icomoon/icomoon.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" />
+  <!-- Icomoon Icons CSS -->
+  <link rel="stylesheet" href="/static/fonts/icomoon/icomoon.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" />
 
-    <!-- Master CSS -->
-    <link rel="stylesheet" href="/static/css/main.css" />
+  <!-- Master CSS -->
+  <link rel="stylesheet" href="/static/css/main.css" />
 
-    <!-- Daterange CSS -->
-    <link rel="stylesheet" href="/static/vendor/daterange/daterange.css" />
+  <!-- Daterange CSS -->
+  <link rel="stylesheet" href="/static/vendor/daterange/daterange.css" />
 
-    <!-- C3 CSS -->
-    <link rel="stylesheet" href="static/vendor/c3/c3.min.css" />
+  <!-- C3 CSS -->
+  <link rel="stylesheet" href="static/vendor/c3/c3.min.css" />
 
-    <!--
-			**********************
-			**********************
-			Optional CSS files
-			**********************
-			**********************
-		-->
+  <!-- Data Tables CSS -->
+  <link rel="stylesheet" href="/static/vendor/datatables/dataTables.bs4.css" />
+  <link rel="stylesheet" href="/static/vendor/datatables/dataTables.bs4-custom.css" />
+</head>
 
-    <!-- Data Tables CSS -->
-    <link
-      rel="stylesheet"
-      href="/static/vendor/datatables/dataTables.bs4.css" />
-    <link
-      rel="stylesheet"
-      href="/static/vendor/datatables/dataTables.bs4-custom.css" />
-  </head>
+<body>
+  <!-- BEGIN .app-wrap -->
+  <div class="app-wrap">
+    <!-- BEGIN .app-heading -->
+    {{template "header.html" .}}
+    <!-- END: .app-heading -->
 
-  <body>
-    <!-- BEGIN .app-wrap -->
-    <div class="app-wrap">
-      <!-- BEGIN .app-heading -->
-      {{template "header.html" .}}
-      <!-- END: .app-heading -->
+    <!-- BEGIN .app-container -->
+    <div class="app-container">
+      <!-- BEGIN .app-side -->
+      <aside class="app-side fixed" id="app-side">
+        <!-- BEGIN .side-content -->
+        {{template "slidebar.html" .}}
+        <!-- END: .side-content -->
+      </aside>
+      <!-- END: .app-side -->
 
-      <!-- BEGIN .app-container -->
-      <div class="app-container">
-        <!-- BEGIN .app-side -->
-        <aside class="app-side fixed" id="app-side">
-          <!-- BEGIN .side-content -->
-          {{template "slidebar.html" .}}
-          <!-- END: .side-content -->
-        </aside>
-        <!-- END: .app-side -->
-
-        <!-- BEGIN .app-main -->
-        <div class="app-main">
-          <header class="main-heading">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="page-icon">
-                    <i class="icon-laptop_windows"></i>
-                  </div>
-                  <div class="page-title">
-                    <select id="phoneNumbers">
-                      <option value="На все номера">Все отделы</option>
-                      <option value="77710151511">Детские специалисты</option>
-                      <option value="77720202020">Взрослые специалисты</option>
-                      <option value="77730303030">МРТ/КТ</option>
-                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
-                    </select>
-
-                    <select id="phoneNumbers">
-                      <option value="На все номера">Выберите период</option>
-                      <option value="77710151511">Прошлая неделя</option>
-                      <option value="77720202020">с 5-12 число</option>
-                      <option value="77730303030">с 28-5</option>
-                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
-                    </select>
-                    <select id="phoneNumbers">
-                      <option value="На все номера">Все номера</option>
-                      <option value="77710151511">+7(771)015-15-11</option>
-                      <option value="77720202020">+7(707)785-25-96</option>
-                      <option value="77730303030">+7(701)432-33-11</option>
-                      <!-- Добавьте дополнительные номера телефонов по аналогии -->
-                    </select>
-                  </div>
+      <!-- BEGIN .app-main -->
+      <div class="app-main">
+        <header class="main-heading">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="page-icon">
+                  <i class="icon-laptop_windows"></i>
                 </div>
-                <div class="col-sm-6">
-                  <div class="daterange-container">
-                    <div id="reportrange" class="form-control">
-                      <span></span> <i class="icon-chevron-down down-arrow"></i>
-                    </div>
+                <div class="page-title">
+
+                  <select id="callStatus" onchange="filterTable()">
+                    <option value="Все звонки">Все звонки</option>
+                    <option value="Принятые">Принятые</option>
+                    <option value="Пропущенные">Пропущенные</option>
+                  </select>
+
+                  <select id="operator" onchange="filterTableByOperator()">
+                    <option value="Все операторы">Все операторы</option>
+                    <option value="Кадырова Динара">Кадырова Динара</option>
+                    <option value="Колобаева Мейрамгуль">Колобаева Мейрамгуль</option>
+                    <option value="Байжанова Аяла">Байжанова Аяла</option>
+                  </select>
+
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="daterange-container">
+                  <div id="reportrange" class="form-control">
+                    <span></span> <i class="icon-chevron-down down-arrow"></i>
                   </div>
                 </div>
               </div>
             </div>
-          </header>
-          <div class="main-content">
-            <!-- Row start -->
+          </div>
+        </header>
+        <div class="main-content">
+          <!-- Row start -->
 
-            <!-- Row start -->
-            <div class="row gutters">
-              <div class="col-sm-12">
-                <!-- section container start -->
+          <!-- Row start -->
+          <div class="row gutters">
+            <div class="col-sm-12">
+              <!-- section container start -->
 
-                <!-- section container end -->
+              <!-- section container end -->
 
-                <div class="section-container">
-                  <h6 class="section-title">Входящие звонки</h6>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="card">
-                      <div class="card-header">Входящие по отделам</div>
-                      <div class="card-body">
-                        <div
-                          id="stacked-vertical-chart"
-                          class="chart-height"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="card">
-                      <div class="card-header">Все входящие</div>
-                      <div class="card-body">
-                        <div id="pieChart" class="chart-height"></div>
-                      </div>
+              <div class="section-container">
+                <h6 class="section-title">Входящие звонки</h6>
+
+                <p>Всего входящих: <strong id="totalIncoming"></strong></p>
+                <p>Принятые: <strong id="totalIconPhone"></strong></p>
+                <p>Не принятые: <strong id="totalMissed"></strong></p>
+
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-header">Входящие по отделам</div>
+                    <div class="card-body">
+                      <div id="stacked-vertical-chart" class="chart-height"></div>
                     </div>
                   </div>
                 </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-header">Все входящие</div>
+                    <div class="card-body">
+                      <div id="pieChart" class="chart-height"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-             
+              <br />
 
-                <br />
-                 <div class="section-container">
-                <div class="table-responsive">
-                  <table class="table m-0">
+              <div class="row gutters">
+                <div class="col-sm-12">
+                  <div class="card custom-bdr">
+                    <!-- <div class="card-header">Basic Datatable</div> -->
+                    <div class="card-body">
+                      <table id="basicExample" class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Кто звонил</th>
+                            <th>Кому звонили</th>
+                            <th>Ожидание</th>
+                            <th>Длительность</th>
+                            <th>Дата звонка</th>
+                            <th>Статус</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{range .CallData}}
+                          <tr>
+                            <td>
+                              {{ if eq .CallStatus "NO ANSWER" }}
+                              <i class="text-danger icon-phone"></i> {{.CallerNumber}}
+                              {{ else if eq .CallStatus "ANSWERED" }}
+                              <i class="text-success icon-phone"></i>{{.CallerNumber}}
+                              {{ end }}
+                            </td>
+                            <td>
+                              {{if eq .Dst "101"}}
+                              {{"Кадырова Динара"}}
+                              {{else if eq .Dst "102"}}
+                              {{"Колобаева Мейрамгуль"}}
+                              {{else if eq .Dst "103"}}
+                              {{"Байжанова Аяла"}}
+                              {{else}}
+                              {{.Dst}}
+                              {{ end }}
+                            </td>
+                            <td>{{.WaitTime}}</td>
+                            <td>{{.Duration}}</td>
+
+                            <td>{{.CallTime}}</td>
+                            {{ if eq .CallStatus "NO ANSWER" }}
+                            <td>
+                              <span class="badge badge-pill badge-success">Не дождался</span>
+                            </td>
+                            {{ else if eq .CallStatus "ANSWERED" }}
+                            <td></td>
+                            {{ end }}
+                            </td>
+
+                          </tr>
+                          {{end}}
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="section-container">
+                <!-- <div class="table-responsive">
+                  <table class="table m-0" id="callsTable">
                     <thead>
                       <tr>
                         <th>Кто звонил</th>
                         <th>Кому звонили</th>
                         <th>Ожидание</th>
-                        <th>Длительность разговора</th>
+                        <th>Длительность</th>
                         <th>Время звонка</th>
                         <th>Статус</th>
-                        <th>Действие</th>
+                        <th>Запись звонка</th>
                       </tr>
                     </thead>
-                  </div>
-                    <tbody>
-                      <!--tr>
-                          <td>
-                            <i class="text-success icon-phone"></i> (000)1234
-                            1234
-                          </td>
-                          <td>JPN</td>
-                          <td colspan="2" class="text-info">
-                            ******** Colspan no data ********
-                          </td>
-                          <td>Lead</td>
-                          <td class="text-info">Good</td>
-                        </tr-->
-
-                        {{range .CallData}}
-                         <tr>
-                         <td>
-                          {{ if eq .CallStatus "NO ANSWER" }}
-                          <i class="text-danger icon-phone"></i> {{.CallerNumber}}
-                          {{ else if eq .CallStatus "ANSWERED" }}
-                        <i class="text-success icon-phone"></i>{{.CallerNumber}}
-                            {{ end }}
-                        </td>
-                         <td>Кенжебекова Жанар</td>
-                         <td>{{.WaitTime}}</td>
-                         <td>{{.Duration}}</td>
-                          <td>{{.CallTime}}</td>
-                            {{ if eq .CallStatus "NO ANSWER" }}
-                           <td>
-                          <span class="badge badge-pill badge-success"
-                            >Не дождался</span
-                          >
-                        </td>
-                          {{ else if eq .CallStatus "ANSWERED" }}
-                        <td></td>
-                            {{ end }}
-                        </td>
-                          <td></td>
-                      </tr>
-                      {{end}}
-                     
-                      <tr>
-                        <td>
-                          <i class="text-danger icon-phone"></i> Серик Аманов
-                        </td>
-                        <td>Кенжебекова Жанар</td>
-                        <td>00:05</td>
-                        <td>00:00</td>
-                        <td>19:30 17.01.2024</td>
-                        <td>
-                          <span class="badge badge-pill badge-success"
-                            >Не дождался</span
-                          >
-                        </td>
-                        <td><span class="icon-volume-down"></span></td>
-                        <td></td>
-                      </tr>
-                     
-                    </tbody>
-                  </table>
                 </div>
-             
-                <!--*************************
-									*************************
-									*************************
-									Basic Table end
-									*************************
-									*************************
-									*************************-->
+                <tbody>
+                  {{range .CallData}}
+                  <tr>
+                    <td>
+                      {{ if eq .CallStatus "NO ANSWER" }}
+                      <i class="text-danger icon-phone"></i> {{.CallerNumber}}
+                      {{ else if eq .CallStatus "ANSWERED" }}
+                      <i class="text-success icon-phone"></i>{{.CallerNumber}}
+                      {{ end }}
+                    </td>
+                    <td>
+                      {{if eq .Dst "101"}}
+                      {{"Кадырова Динара"}}
+                      {{else if eq .Dst "102"}}
+                      {{"Колобаева Мейрамгуль"}}
+                      {{else if eq .Dst "103"}}
+                      {{"Байжанова Аяла"}}
+                      {{else}}
+                      {{.Dst}}
+                      {{ end }}
+                    </td>
+                    <td>{{.WaitTime}}</td>
+                    <td>{{.Duration}}</td>
+                    <td>{{.CallTime}}</td>
+                    {{ if eq .CallStatus "NO ANSWER" }}
+                    <td>
+                      <span class="badge badge-pill badge-success">Не дождался</span>
+                    </td>
+                    {{ else if eq .CallStatus "ANSWERED" }}
+                    <td></td>
+                    {{ end }}
+                    </td>
+                    <td><span class="icon-volume-down play-record" data-record="{{.Callrecording}}"></span></td>
+                  </tr>
+                  {{end}}
+
+
+                </tbody>
+                </table> -->
+
+
+                <script>
+                  function filterTableByOperator() {
+                    var selectedOperator = document.getElementById("operator").value;
+                    var tableRows = document.getElementById("basicExample").getElementsByTagName("tr");
+
+                    for (var i = 0; i < tableRows.length; i++) {
+                      var row = tableRows[i];
+                      var operatorCell = row.cells[1]; // Вторая ячейка содержит оператора
+
+                      if (operatorCell) {
+                        if (selectedOperator === "" || operatorCell.innerText.trim() === selectedOperator) {
+                          row.style.display = ""; // Показать строку, если выбран оператор или оператор не выбран
+                        } else {
+                          row.style.display = "none"; // Скрыть строку, если оператор не совпадает
+                        }
+                      }
+                    }
+                  }
+                </script>
+
+
+                <script>
+                  function filterTable() {
+                    var selectedCallStatus = document.getElementById("callStatus").value;
+                    var selectedOperator = document.getElementById("operator").value;
+                    var tableRows = document.getElementsByTagName("tr");
+
+                    for (var i = 0; i < tableRows.length; i++) {
+                      var row = tableRows[i];
+                      var callStatusCell = row.cells[5]; // Проверяем столбец со статусом звонка (индекс 5, с учетом нулевого индекса)
+                      var operatorCell = row.cells[1]; // Проверяем столбец с оператором (индекс 1, с учетом нулевого индекса)
+
+                      if (callStatusCell && operatorCell) {
+                        var callStatus = callStatusCell.innerText.trim(); // Получаем статус звонка
+                        var operator = operatorCell.innerText.trim(); // Получаем имя оператора
+
+                        // Применяем фильтрацию по выбранным значениям
+                        if ((selectedCallStatus === "Все звонки" || (selectedCallStatus === "Принятые" && callStatus !== "Не дождался") || (selectedCallStatus === "Пропущенные" && callStatus === "Не дождался")) &&
+                          (selectedOperator === "Все операторы" || selectedOperator === operator)) {
+                          row.style.display = ""; // Показываем строку, если выбранные значения соответствуют строке
+                        } else {
+                          row.style.display = "none"; // Скрываем строку в противном случае
+                        }
+                      }
+                    }
+                  }
+
+
+                </script>
+
+
+                <script>
+                  // Функция для подсчета количества строк в таблице
+                  function countRows() {
+                    // Найти таблицу по ее id
+                    var table = document.getElementById("callsTable");
+
+                    // Получить все строки таблицы
+                    var rows = table.getElementsByTagName("tr");
+
+                    // Вычислить количество строк, исключая заголовки
+                    var rowCount = rows.length - 1; // Исключаем заголовок таблицы
+
+                    // Вернуть количество строк
+                    return rowCount;
+                  }
+
+                  // Получить количество строк в таблице
+                  var totalIncomingCalls = countRows();
+
+                  // Вывести количество строк вверху страницы
+                  document.getElementById("totalIncoming").innerText += " " + totalIncomingCalls;
+                </script>
+
+
+                <script>
+                  // Функция для подсчета общего количества строк в таблице
+                  function countTotalRows() {
+                    // Найти таблицу по ее id
+                    var table = document.getElementById("callsTable");
+                    // Получить все строки таблицы
+                    var rows = table.getElementsByTagName("tr");
+                    // Вернуть общее количество строк, исключая заголовки
+                    return rows.length - 1; // Исключаем заголовок таблицы
+                  }
+
+                  // Функция для подсчета количества строк с определенным статусом в таблице
+                  function countRowsWithStatus(status) {
+                    // Найти таблицу по ее id
+                    var table = document.getElementById("callsTable");
+                    // Получить все строки таблицы
+                    var rows = table.getElementsByTagName("tr");
+                    // Объявим счетчик для строк с определенным статусом
+                    var rowCount = 0;
+                    // Пройдемся по каждой строке таблицы, начиная со второй (так как первая строка - заголовок)
+                    for (var i = 1; i < rows.length; i++) {
+                      // Получим статус в текущей строке
+                      var statusCell = rows[i].cells[5].innerText.trim(); // Индекс 5, с учетом нулевого индекса
+                      // Если статус совпадает с заданным, увеличим счетчик
+                      if (statusCell === status) {
+                        rowCount++;
+                      }
+                    }
+                    // Вернем количество строк с указанным статусом
+                    return rowCount;
+                  }
+
+                  // Функция для подсчета количества строк с определенным классом в таблице
+                  function countRowsWithClass(className) {
+                    // Найти таблицу по ее id
+                    var table = document.getElementById("callsTable");
+                    // Получить все строки таблицы
+                    var rows = table.getElementsByTagName("tr");
+                    // Объявим счетчик для строк с определенным классом
+                    var rowCount = 0;
+                    // Пройдемся по каждой строке таблицы, начиная со второй (так как первая строка - заголовок)
+                    for (var i = 1; i < rows.length; i++) {
+                      // Получим элемент с иконкой в текущей строке
+                      var iconElement = rows[i].querySelector("." + className);
+                      // Если элемент с иконкой существует в текущей строке, увеличим счетчик
+                      if (iconElement) {
+                        rowCount++;
+                      }
+                    }
+                    // Вернем количество строк с указанным классом
+                    return rowCount;
+                  }
+
+                  // Получить общее количество строк в таблице
+                  var totalRows = countTotalRows();
+                  // Вывести общее количество строк вверху страницы
+                  document.getElementById("totalIncoming").innerText = totalRows;
+
+                  // Получить количество пропущенных звонков
+                  var missedCallsCount = countRowsWithStatus("Не дождался");
+                  // Вывести количество пропущенных звонков вверху страницы
+                  document.getElementById("totalMissed").innerText = missedCallsCount;
+
+                  // Получить количество строк с иконкой телефона
+                  var iconPhoneRowsCount = countRowsWithClass("text-success.icon-phone");
+                  // Вывести количество строк с иконкой телефона вверху страницы
+                  document.getElementById("totalIconPhone").innerText = iconPhoneRowsCount;
+                </script>
+
+
+                <script>
+                  function sortTable() {
+                    var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("callsTable");
+                    switching = true;
+                    while (switching) {
+                      switching = false;
+                      rows = table.rows;
+                      for (i = 1; i < (rows.length - 1); i++) {
+                        shouldSwitch = false;
+                        x = rows[i].getElementsByTagName("td")[4]; // Индекс 4 - колонка с временем звонка
+                        y = rows[i + 1].getElementsByTagName("td")[4];
+                        if (x.innerHTML > y.innerHTML) {
+                          shouldSwitch = true;
+                          break;
+                        }
+                      }
+                      if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+                      }
+                    }
+                  }
+                </script>
+
               </div>
             </div>
-            <!-- Row end -->
           </div>
-          <!-- END: .main-content -->
+          <!-- Row end -->
         </div>
-        <!-- END: .app-main -->
+        <!-- END: .main-content -->
       </div>
-      <!-- END: .app-container -->
+      <!-- END: .app-main -->
     </div>
-    
-    <!-- END: .app-wrap -->
+    <!-- END: .app-container -->
+  </div>
 
-    <!--
-			**********************
-			**********************
-			Common JS files
-			**********************
-			**********************
-		-->
+  <!-- jQuery JS. -->
+  <script src="/static/js/jquery.js"></script>
 
-    <!-- jQuery JS. -->
-    <script src="/static/js/jquery.js"></script>
+  <!-- Tether Js, then other JS. -->
+  <script src="/static/js/popper.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/vendor/unifyMenu/unifyMenu.js"></script>
+  <script src="/static/vendor/onoffcanvas/onoffcanvas.js"></script>
+  <script src="/static/js/moment.js"></script>
 
-    <!-- Tether Js, then other JS. -->
-    <script src="/static/js/popper.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/vendor/unifyMenu/unifyMenu.js"></script>
-    <script src="/static/vendor/onoffcanvas/onoffcanvas.js"></script>
-    <script src="/static/js/moment.js"></script>
+  <!-- News Ticker JS -->
+  <script src="/static/vendor/newsticker/newsTicker.min.js"></script>
+  <script src="/static/vendor/newsticker/custom-newsTicker.js"></script>
 
-    <!-- News Ticker JS -->
-    <script src="/static/vendor/newsticker/newsTicker.min.js"></script>
-    <script src="/static/vendor/newsticker/custom-newsTicker.js"></script>
+  <!-- Slimscroll JS -->
+  <script src="/static/vendor/slimscroll/slimscroll.min.js"></script>
+  <script src="/static/vendor/slimscroll/custom-scrollbar.js"></script>
 
-    <!-- Slimscroll JS -->
-    <script src="/static/vendor/slimscroll/slimscroll.min.js"></script>
-    <script src="/static/vendor/slimscroll/custom-scrollbar.js"></script>
+  <!-- Daterange JS -->
+  <script src="/static/vendor/daterange/daterange.js"></script>
+  <script src="/static/vendor/daterange/custom-daterange.js"></script>
 
-    <!-- Daterange JS -->
-    <script src="/static/vendor/daterange/daterange.js"></script>
-    <script src="/static/vendor/daterange/custom-daterange.js"></script>
+  <!-- Flot Charts JS -->
+  <script src="static/vendor/flot/jquery.flot.min.js"></script>
+  <script src="static/vendor/flot/jquery.flot.time.min.js"></script>
+  <script src="static/vendor/flot/jquery.flot.pie.min.js"></script>
+  <script src="static/vendor/flot/jquery.flot.stack.min.js"></script>
+  <script src="static/vendor/flot/jquery.flot.tooltip.min.js"></script>
+  <script src="static/vendor/flot/jquery.flot.resize.min.js"></script>
 
-    <!-- Flot Charts JS -->
-    <script src="static/vendor/flot/jquery.flot.min.js"></script>
-    <script src="static/vendor/flot/jquery.flot.time.min.js"></script>
-    <script src="static/vendor/flot/jquery.flot.pie.min.js"></script>
-    <script src="static/vendor/flot/jquery.flot.stack.min.js"></script>
-    <script src="static/vendor/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="static/vendor/flot/jquery.flot.resize.min.js"></script>
+  <!-- Custom Flot Chart JS -->
+  <script src="static/vendor/flot/custom/line.js"></script>
+  <script src="static/vendor/flot/custom/area.js"></script>
+  <script src="static/vendor/flot/custom/combine-chart.js"></script>
+  <script src="static/vendor/flot/custom/combine-chart-compare.js"></script>
+  <script src="static/vendor/flot/custom/stacked-area.js"></script>
+  <script src="static/vendor/flot/custom/vertical.js"></script>
+  <script src="static/vendor/flot/custom/horizontal.js"></script>
+  <script src="static/vendor/flot/custom/stacked-vertical.js"></script>
+  <script src="static/vendor/flot/custom/stacked-horizontal.js"></script>
+  <script src="static/vendor/flot/custom/rectangular-pie.js"></script>
+  <script src="static/vendor/flot/custom/realtime.js"></script>
+  <script src="static/vendor/flot/custom/pie.js"></script>
+  <script src="static/vendor/flot/custom/donut.js"></script>
+  <script src="static/vendor/flot/custom/scatter.js"></script>
 
-    <!-- Custom Flot Chart JS -->
-    <script src="static/vendor/flot/custom/line.js"></script>
-    <script src="static/vendor/flot/custom/area.js"></script>
-    <script src="static/vendor/flot/custom/combine-chart.js"></script>
-    <script src="static/vendor/flot/custom/combine-chart-compare.js"></script>
-    <script src="static/vendor/flot/custom/stacked-area.js"></script>
-    <script src="static/vendor/flot/custom/vertical.js"></script>
-    <script src="static/vendor/flot/custom/horizontal.js"></script>
-    <script src="static/vendor/flot/custom/stacked-vertical.js"></script>
-    <script src="static/vendor/flot/custom/stacked-horizontal.js"></script>
-    <script src="static/vendor/flot/custom/rectangular-pie.js"></script>
-    <script src="static/vendor/flot/custom/realtime.js"></script>
-    <script src="static/vendor/flot/custom/pie.js"></script>
-    <script src="static/vendor/flot/custom/donut.js"></script>
-    <script src="static/vendor/flot/custom/scatter.js"></script>
+  <!-- D3 JS -->
+  <script src="static/vendor/d3/d3.min.js"></script>
 
-    <!-- D3 JS -->
-    <script src="static/vendor/d3/d3.min.js"></script>
+  <!-- C3 Graphs JS -->
+  <script src="static/vendor/c3/c3.min.js"></script>
+  <script src="static/vendor/c3/custom/line-graph.js"></script>
+  <script src="static/vendor/c3/custom/spline-graph.js"></script>
+  <script src="static/vendor/c3/custom/area-spline-graph.js"></script>
+  <script src="static/vendor/c3/custom/step-graph.js"></script>
+  <script src="static/vendor/c3/custom/bar-area-graph.js"></script>
+  <script src="static/vendor/c3/custom/bar-graph.js"></script>
+  <script src="static/vendor/c3/custom/stacked-bar-braph.js"></script>
+  <script src="static/vendor/c3/custom/scatter-plot.js"></script>
+  <script src="static/vendor/c3/custom/pie-chart.js"></script>
+  <script src="static/vendor/c3/custom/pie-chart-one.js"></script>
+  <script src="static/vendor/c3/custom/donut-chart.js"></script>
+  <script src="static/vendor/c3/custom/server-requests.js"></script>
+  <script src="static/vendor/c3/custom/spline-sales.js"></script>
+  <script src="static/vendor/c3/custom/line-graph-overview.js"></script>
+  <script src="static/vendor/c3/custom/line-graph-one.js"></script>
 
-    <!-- C3 Graphs JS -->
-    <script src="static/vendor/c3/c3.min.js"></script>
-    <script src="static/vendor/c3/custom/line-graph.js"></script>
-    <script src="static/vendor/c3/custom/spline-graph.js"></script>
-    <script src="static/vendor/c3/custom/area-spline-graph.js"></script>
-    <script src="static/vendor/c3/custom/step-graph.js"></script>
-    <script src="static/vendor/c3/custom/bar-area-graph.js"></script>
-    <script src="static/vendor/c3/custom/bar-graph.js"></script>
-    <script src="static/vendor/c3/custom/stacked-bar-braph.js"></script>
-    <script src="static/vendor/c3/custom/scatter-plot.js"></script>
-    <script src="static/vendor/c3/custom/pie-chart.js"></script>
-    <script src="static/vendor/c3/custom/pie-chart-one.js"></script>
-    <script src="static/vendor/c3/custom/donut-chart.js"></script>
-    <script src="static/vendor/c3/custom/server-requests.js"></script>
-    <script src="static/vendor/c3/custom/spline-sales.js"></script>
-    <script src="static/vendor/c3/custom/line-graph-overview.js"></script>
-    <script src="static/vendor/c3/custom/line-graph-one.js"></script>
 
-    <!--
-			**********************
-			**********************
-			Optional JS files - Plugns
-			**********************
-			**********************
-		-->
+  <!-- Data Tables JS -->
+  <script src="/static/vendor/datatables/dataTables.min.js"></script>
+  <script src="/static/vendor/datatables/dataTables.bootstrap.min.js"></script>
+  <!-- Custom Data tables -->
+  <script src="/static/vendor/datatables/custom/custom-datatables.js"></script>
 
-    <!-- Data Tables JS -->
-    <script src="/static/vendor/datatables/dataTables.min.js"></script>
-    <script src="/static/vendor/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- Custom Data tables -->
-    <script src="/static/vendor/datatables/custom/custom-datatables.js"></script>
+  <!-- D3 JS -->
+  <script src="static/vendor/d3/d3.min.js"></script>
 
-    <!-- D3 JS -->
-    <script src="static/vendor/d3/d3.min.js"></script>
+  <!-- C3 Graphs JS -->
+  <script src="static/vendor/c3/c3.min.js"></script>
 
-    <!-- C3 Graphs JS -->
-    <script src="static/vendor/c3/c3.min.js"></script>
+  <script src="static/vendor/c3/custom/bar-graph.js"></script>
 
-    <script src="static/vendor/c3/custom/bar-graph.js"></script>
+  <!-- Common JS -->
+  <script src="/static/js/common.js"></script>
+</body>
 
-    <!-- Common JS -->
-    <script src="/static/js/common.js"></script>
-  </body>
 </html>
