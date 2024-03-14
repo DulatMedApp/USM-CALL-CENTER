@@ -1,17 +1,17 @@
 package config
 
 var (
-	// DBHost     = "195.49.210.210"
-	// DBPort     = "3306"
-	// DBUser     = "testuser"
-	// DBPassword = "oochi8Ophudujoh"
-	// DBDatabase = "asteriskcdrdb"
-
-	DBHost     = "localhost"
-	DBPort     = "3307"
-	DBUser     = "root"
-	DBPassword = "EasyPa$$w0rd2"
+	DBHost     = "195.49.210.210"
+	DBPort     = "3306"
+	DBUser     = "testuser"
+	DBPassword = "oochi8Ophudujoh"
 	DBDatabase = "asteriskcdrdb"
+
+	// DBHost     = "localhost"
+	// DBPort     = "3307"
+	// DBUser     = "root"
+	// DBPassword = "EasyPa$$w0rd2"
+	// DBDatabase = "asteriskcdrdb"
 )
 
 var (
