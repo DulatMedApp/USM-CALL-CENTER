@@ -8,6 +8,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"strings"
 	"usmcallcenter/main/app/db"
 	"usmcallcenter/main/app/models"
 
@@ -35,19 +36,29 @@ func IncomeCallsHandler(c *gin.Context) {
 	// Обработка результатов запроса
 	var callData []models.CallInfo
 	for rows.Next() {
-		var calldate, src, dst, billsec, disposition, wait_time, callrecording string
-		err := rows.Scan(&calldate, &src, &dst, &billsec, &disposition, &wait_time, &callrecording)
+		var formattedCalldate, src, dst, billsec, disposition, wait_time, callrecording string
+		err := rows.Scan(&formattedCalldate, &src, &dst, &billsec, &disposition, &wait_time, &callrecording)
 		if err != nil {
 			log.Println("Error scanning database rows:", err)
 			c.String(http.StatusInternalServerError, "Internal Server Error")
 			return
 		}
 
+		dateTimeParts := strings.Split(formattedCalldate, " ")
+		if len(dateTimeParts) != 2 {
+			log.Println("Invalid datetime format:", formattedCalldate)
+			c.String(http.StatusInternalServerError, "Internal Server Error")
+			return
+		}
+		calldate := dateTimeParts[1] // Время звонка
+		calltime := dateTimeParts[0] // Дата звонка
+
 		callData = append(callData, models.CallInfo{
 			CallerNumber:  src,
 			Dst:           dst,
 			Duration:      billsec,
-			CallTime:      calldate,
+			CallTime:      calltime,
+			CallDate:      calldate,
 			CallStatus:    disposition,
 			WaitTime:      wait_time,
 			Callrecording: callrecording,

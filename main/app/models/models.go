@@ -8,6 +8,7 @@ type CallInfo struct {
 	CallerName    string
 	Duration      string
 	CallTime      string
+	CallDate      string
 	CallStatus    string
 	WaitTime      string
 	Callrecording string

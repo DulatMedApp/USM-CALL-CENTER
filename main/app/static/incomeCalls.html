@@ -108,7 +108,7 @@
 
                 <p>Всего входящих: <strong id="totalIncoming"></strong></p>
                 <p>Принятые: <strong id="totalIconPhone"></strong></p>
-                <p>Не принятые: <strong id="totalMissed"></strong></p>
+                <p>Пропущенные: <strong id="totalMissed"></strong></p>
 
               </div>
               <div class="row">
@@ -144,6 +144,7 @@
                             <th>Кому звонили</th>
                             <th>Ожидание</th>
                             <th>Длительность</th>
+                            <th>Время звонка</th>
                             <th>Дата звонка</th>
                             <th>Статус</th>
 
@@ -173,6 +174,7 @@
                             <td>{{.WaitTime}}</td>
                             <td>{{.Duration}}</td>
 
+                            <td>{{.CallDate}}</td>
                             <td>{{.CallTime}}</td>
                             {{ if eq .CallStatus "NO ANSWER" }}
                             <td>
@@ -193,60 +195,6 @@
                 </div>
               </div>
               <div class="section-container">
-                <!-- <div class="table-responsive">
-                  <table class="table m-0" id="callsTable">
-                    <thead>
-                      <tr>
-                        <th>Кто звонил</th>
-                        <th>Кому звонили</th>
-                        <th>Ожидание</th>
-                        <th>Длительность</th>
-                        <th>Время звонка</th>
-                        <th>Статус</th>
-                        <th>Запись звонка</th>
-                      </tr>
-                    </thead>
-                </div>
-                <tbody>
-                  {{range .CallData}}
-                  <tr>
-                    <td>
-                      {{ if eq .CallStatus "NO ANSWER" }}
-                      <i class="text-danger icon-phone"></i> {{.CallerNumber}}
-                      {{ else if eq .CallStatus "ANSWERED" }}
-                      <i class="text-success icon-phone"></i>{{.CallerNumber}}
-                      {{ end }}
-                    </td>
-                    <td>
-                      {{if eq .Dst "101"}}
-                      {{"Кадырова Динара"}}
-                      {{else if eq .Dst "102"}}
-                      {{"Колобаева Мейрамгуль"}}
-                      {{else if eq .Dst "103"}}
-                      {{"Байжанова Аяла"}}
-                      {{else}}
-                      {{.Dst}}
-                      {{ end }}
-                    </td>
-                    <td>{{.WaitTime}}</td>
-                    <td>{{.Duration}}</td>
-                    <td>{{.CallTime}}</td>
-                    {{ if eq .CallStatus "NO ANSWER" }}
-                    <td>
-                      <span class="badge badge-pill badge-success">Не дождался</span>
-                    </td>
-                    {{ else if eq .CallStatus "ANSWERED" }}
-                    <td></td>
-                    {{ end }}
-                    </td>
-                    <td><span class="icon-volume-down play-record" data-record="{{.Callrecording}}"></span></td>
-                  </tr>
-                  {{end}}
-
-
-                </tbody>
-                </table> -->
-
 
                 <script>
                   function filterTableByOperator() {
@@ -277,7 +225,7 @@
 
                     for (var i = 0; i < tableRows.length; i++) {
                       var row = tableRows[i];
-                      var callStatusCell = row.cells[5]; // Проверяем столбец со статусом звонка (индекс 5, с учетом нулевого индекса)
+                      var callStatusCell = row.cells[6]; // Проверяем столбец со статусом звонка (индекс 5, с учетом нулевого индекса)
                       var operatorCell = row.cells[1]; // Проверяем столбец с оператором (индекс 1, с учетом нулевого индекса)
 
                       if (callStatusCell && operatorCell) {
@@ -303,7 +251,7 @@
                   // Функция для подсчета количества строк в таблице
                   function countRows() {
                     // Найти таблицу по ее id
-                    var table = document.getElementById("callsTable");
+                    var table = document.getElementById("basicExample");
 
                     // Получить все строки таблицы
                     var rows = table.getElementsByTagName("tr");
@@ -327,7 +275,7 @@
                   // Функция для подсчета общего количества строк в таблице
                   function countTotalRows() {
                     // Найти таблицу по ее id
-                    var table = document.getElementById("callsTable");
+                    var table = document.getElementById("basicExample");
                     // Получить все строки таблицы
                     var rows = table.getElementsByTagName("tr");
                     // Вернуть общее количество строк, исключая заголовки
@@ -337,7 +285,7 @@
                   // Функция для подсчета количества строк с определенным статусом в таблице
                   function countRowsWithStatus(status) {
                     // Найти таблицу по ее id
-                    var table = document.getElementById("callsTable");
+                    var table = document.getElementById("basicExample");
                     // Получить все строки таблицы
                     var rows = table.getElementsByTagName("tr");
                     // Объявим счетчик для строк с определенным статусом
@@ -345,7 +293,7 @@
                     // Пройдемся по каждой строке таблицы, начиная со второй (так как первая строка - заголовок)
                     for (var i = 1; i < rows.length; i++) {
                       // Получим статус в текущей строке
-                      var statusCell = rows[i].cells[5].innerText.trim(); // Индекс 5, с учетом нулевого индекса
+                      var statusCell = rows[i].cells[6].innerText.trim(); // Индекс 5, с учетом нулевого индекса
                       // Если статус совпадает с заданным, увеличим счетчик
                       if (statusCell === status) {
                         rowCount++;
@@ -358,7 +306,7 @@
                   // Функция для подсчета количества строк с определенным классом в таблице
                   function countRowsWithClass(className) {
                     // Найти таблицу по ее id
-                    var table = document.getElementById("callsTable");
+                    var table = document.getElementById("basicExample");
                     // Получить все строки таблицы
                     var rows = table.getElementsByTagName("tr");
                     // Объявим счетчик для строк с определенным классом
@@ -396,7 +344,7 @@
                 <script>
                   function sortTable() {
                     var table, rows, switching, i, x, y, shouldSwitch;
-                    table = document.getElementById("callsTable");
+                    table = document.getElementById("basicExample");
                     switching = true;
                     while (switching) {
                       switching = false;
@@ -417,6 +365,8 @@
                     }
                   }
                 </script>
+
+
 
               </div>
             </div>
